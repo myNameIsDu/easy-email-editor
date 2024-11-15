@@ -44,7 +44,7 @@ export function EditPanel({
       >
         <TabPane
           key='2'
-          title={t('Block')}
+          title={t('componentLibrary')}
         >
           <FullHeightOverlayScrollbars height={`calc(${height} - 60px)`}>
             <Blocks />

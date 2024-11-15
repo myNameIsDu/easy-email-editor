@@ -1,6 +1,11 @@
 import React from 'react';
 import { BackgroundColor } from '@extensions/AttributePanel/components/attributes/BackgroundColor';
-import { ImageUploaderField, InputWithUnitField, RadioGroupField, TextField } from '@extensions/components/Form';
+import {
+  ImageUploaderField,
+  InputWithUnitField,
+  RadioGroupField,
+  TextField,
+} from '@extensions/components/Form';
 import { Width } from '@extensions/AttributePanel/components/attributes/Width';
 import { Height } from '@extensions/AttributePanel/components/attributes/Height';
 import { VerticalAlign } from '@extensions/AttributePanel/components/attributes/VerticalAlign';
@@ -116,7 +121,7 @@ export function Hero() {
         </Collapse.Item>
         <Collapse.Item
           name='4'
-          header={t('Extra')}
+          header={t('ExtraAttribute')}
         >
           <Grid.Col span={24}>
             <ClassName />

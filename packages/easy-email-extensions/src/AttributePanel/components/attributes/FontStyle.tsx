@@ -6,7 +6,7 @@ const options = [
   {
     value: 'normal',
     get label() {
-      return t('Normal');
+      return t('NoItalic');
     },
   },
   {

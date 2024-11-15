@@ -113,12 +113,12 @@ export function Image() {
 
         <Collapse.Item
           name='4'
-          header={t('Extra')}
+          header={t('ExtraAttribute')}
         >
           <Grid.Row>
             <Grid.Col span={11}>
               <TextField
-                label={t('title')}
+                label='title'
                 name={`${focusIdx}.attributes.title`}
               />
             </Grid.Col>
@@ -127,14 +127,14 @@ export function Image() {
               span={11}
             >
               <TextField
-                label={t('alt')}
+                label='alt'
                 name={`${focusIdx}.attributes.alt`}
               />
             </Grid.Col>
           </Grid.Row>
           <Grid.Col span={24}>
             <TextField
-              label={t('class name')}
+              label='class'
               name={`${focusIdx}.attributes.css-class`}
             />
           </Grid.Col>

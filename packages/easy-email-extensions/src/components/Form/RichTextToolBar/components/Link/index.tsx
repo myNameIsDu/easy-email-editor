@@ -18,21 +18,18 @@ export interface LinkProps extends PopoverProps {
   onChange: (val: LinkParams) => void;
 }
 
-function getAnchorElement(
-  node: Node | null,
-): HTMLAnchorElement | null {
+function getAnchorElement(node: Node | null): HTMLAnchorElement | null {
   if (!node) return null;
   if (node instanceof HTMLAnchorElement) {
     return node;
   }
-  if (node instanceof Element && node.classList.contains(EMAIL_BLOCK_CLASS_NAME)) return null;
+  if (node instanceof Element && node.classList.contains(EMAIL_BLOCK_CLASS_NAME))
+    return null;
 
   return getAnchorElement(node.parentNode);
 }
 
-function getLinkNode(
-  currentRange: Range | null | undefined
-): HTMLAnchorElement | null {
+function getLinkNode(currentRange: Range | null | undefined): HTMLAnchorElement | null {
   let linkNode: HTMLAnchorElement | null = null;
   if (!currentRange) return null;
   linkNode = getAnchorElement(currentRange.startContainer);
@@ -88,42 +85,47 @@ export function Link(props: LinkProps) {
             content={
               // eslint-disable-next-line react/jsx-wrap-multilines
               <div style={{ color: '#333' }}>
-                <Stack vertical spacing='none'>
+                <Stack
+                  vertical
+                  spacing='none'
+                >
                   <SearchField
                     size='small'
                     name='link'
                     label={t('Link')}
                     labelHidden
                     searchButton={t('Apply')}
-                    placeholder={t('https://www.example.com')}
+                    placeholder='https://www.example.com'
                     onSearch={() => handleSubmit()}
                   />
                 </Stack>
                 <Grid.Row>
                   <Grid.Col span={12}>
-                    <Space align='center' size='mini'>
+                    <Space
+                      align='center'
+                      size='mini'
+                    >
                       <TextStyle size='smallest'>{t('Target')}</TextStyle>
                       <SwitchField
                         size='small'
                         label={t('Target')}
                         labelHidden
                         name='blank'
-                        checkedText={t('blank')}
-                        uncheckedText={t('self')}
                         inline
                       />
                     </Space>
                   </Grid.Col>
                   <Grid.Col span={12}>
-                    <Space align='center' size='mini'>
+                    <Space
+                      align='center'
+                      size='mini'
+                    >
                       <TextStyle size='smallest'>{t('Underline')}</TextStyle>
                       <SwitchField
                         size='small'
                         label={t('Underline')}
                         labelHidden
                         name='underline'
-                        checkedText={t('off')}
-                        uncheckedText={t('on')}
                         inline
                       />
                     </Space>
@@ -132,7 +134,11 @@ export function Link(props: LinkProps) {
               </div>
             }
           >
-            <ToolItem isActive={Boolean(initialValues.link)} title={t('Link')} icon={<IconFont iconName='icon-link' />} />
+            <ToolItem
+              isActive={Boolean(initialValues.link)}
+              title={t('Link')}
+              icon={<IconFont iconName='icon-link' />}
+            />
           </Tooltip>
         );
       }}

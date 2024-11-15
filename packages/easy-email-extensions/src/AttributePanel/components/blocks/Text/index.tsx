@@ -24,14 +24,14 @@ export function Text() {
 
   return (
     <AttributesPanelWrapper
-      extra={(
+      extra={
         <Tooltip content={t('Html mode')}>
           <Button
             onClick={() => setVisible(true)}
             icon={<IconFont iconName='icon-html' />}
           />
         </Tooltip>
-      )}
+      }
     >
       <CollapseWrapper defaultActiveKey={['0', '1', '2']}>
         <Collapse.Item
@@ -115,7 +115,7 @@ export function Text() {
         </Collapse.Item>
         <Collapse.Item
           name='4'
-          header={t('Extra')}
+          header={t('ExtraAttribute')}
         >
           <Grid.Col span={24}>
             <ClassName />

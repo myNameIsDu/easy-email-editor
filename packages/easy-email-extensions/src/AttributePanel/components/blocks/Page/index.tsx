@@ -13,7 +13,10 @@ import { AttributesPanelWrapper } from '@extensions/AttributePanel/components/at
 import { FontFamily } from '../../attributes/FontFamily';
 import { pixelAdapter } from '../../adapter';
 
-interface PageProps { hideSubTitle?: boolean; hideSubject?: boolean}
+interface PageProps {
+  hideSubTitle?: boolean;
+  hideSubject?: boolean;
+}
 export function Page({ hideSubTitle, hideSubject }: PageProps) {
   const { focusIdx } = useFocusIdx();
 
@@ -74,7 +77,7 @@ export function Page({ hideSubTitle, hideSubject }: PageProps) {
                   span={11}
                 >
                   <NumberField
-                    label='Font size (px)'
+                    label={t('Font size (px)')}
                     name={`${focusIdx}.data.value.font-size`}
                     config={pixelAdapter}
                     autoComplete='off'
@@ -129,7 +132,7 @@ export function Page({ hideSubTitle, hideSubject }: PageProps) {
 
               <TextAreaField
                 autoSize
-                label={t('User style')}
+                label={t('Custom Css Style')}
                 name={`${focusIdx}.data.value.user-style.content`}
               />
               <Stack.Item />

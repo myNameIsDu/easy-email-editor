@@ -57,12 +57,10 @@ export function Section() {
             <Grid.Row>
               <Grid.Col span={12}>
                 <label style={{ width: '100%', display: 'flex' }}>
-                  <div style={{ flex: 1 }}>{t('Group')}</div>
+                  <div style={{ flex: 1 }}>{t('AddGroupAutomatically')}</div>
                 </label>
                 <Switch
                   checked={noWrap}
-                  checkedText={t('True')}
-                  uncheckedText={t('False')}
                   onChange={onChange}
                 />
               </Grid.Col>
@@ -100,7 +98,7 @@ export function Section() {
         </Collapse.Item>
         <Collapse.Item
           name='4'
-          header={t('Extra')}
+          header={t('ExtraAttribute')}
         >
           <Grid.Col span={24}>
             <ClassName />

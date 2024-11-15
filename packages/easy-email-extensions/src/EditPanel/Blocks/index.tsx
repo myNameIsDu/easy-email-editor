@@ -11,10 +11,8 @@ export function Blocks() {
   const { categories } = useExtensionProps();
 
   const defaultActiveKey = useMemo(
-    () => [
-      ...categories.filter((item) => item.active).map((item) => item.label),
-    ],
-    [categories]
+    () => [...categories.filter(item => item.active).map(item => item.label)],
+    [categories],
   );
   return (
     <Collapse
@@ -28,15 +26,15 @@ export function Blocks() {
               key={index}
               contentStyle={{ padding: '0px 20px' }}
               name={cat.label}
-              header={cat.label}
+              header={t(cat.label)}
             >
               <Space direction='vertical'>
                 <div />
               </Space>
-              {cat.blocks.map((item) => (
+              {cat.blocks.map(item => (
                 <LayoutItem
                   key={item.title}
-                  title={item.title || ''}
+                  title={t(item.title || '')}
                   columns={item.payload}
                 />
               ))}
@@ -54,7 +52,7 @@ export function Blocks() {
               key={index}
               contentStyle={{ padding: 0, paddingBottom: 0, paddingTop: 20 }}
               name={cat.label}
-              header={cat.label}
+              header={t(cat.label)}
             >
               <Grid.Row>
                 {cat.blocks.map((item, index) => {
@@ -69,11 +67,16 @@ export function Blocks() {
             key={index}
             contentStyle={{ padding: 0, paddingBottom: 0, paddingTop: 20 }}
             name={cat.label}
-            header={cat.label}
+            header={t(cat.label)}
           >
             <Grid.Row>
               {cat.blocks.map((item, index) => {
-                return <BlockItem key={index} {...(item as any)} />;
+                return (
+                  <BlockItem
+                    key={index}
+                    {...(item as any)}
+                  />
+                );
               })}
             </Grid.Row>
           </Collapse.Item>
@@ -98,7 +101,10 @@ function BlockItem({
 
   return (
     <div className={styles.blockItem}>
-      <BlockAvatarWrapper type={type} payload={payload}>
+      <BlockAvatarWrapper
+        type={type}
+        payload={payload}
+      >
         <div className={styles.blockItemContainer}>
           <IconFont
             style={{ fontSize: 20 }}
@@ -113,19 +119,13 @@ function BlockItem({
   );
 }
 
-function LayoutItem({
-  columns,
-  title,
-}: {
-  columns: string[][];
-  title: string;
-}) {
+function LayoutItem({ columns, title }: { columns: string[][]; title: string }) {
   const [visible, setVisible] = useState(false);
 
   return (
     <div>
       <p
-        onClick={() => setVisible((v) => !v)}
+        onClick={() => setVisible(v => !v)}
         style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -142,7 +142,7 @@ function LayoutItem({
         const payload = {
           type: AdvancedType.SECTION,
           attributes: {},
-          children: item.map((col) => ({
+          children: item.map(col => ({
             type: AdvancedType.COLUMN,
             attributes: {
               width: col,
@@ -163,7 +163,10 @@ function LayoutItem({
               marginBottom: hide ? 0 : 20,
             }}
           >
-            <BlockAvatarWrapper type={AdvancedType.SECTION} payload={payload}>
+            <BlockAvatarWrapper
+              type={AdvancedType.SECTION}
+              payload={payload}
+            >
               <div
                 style={{
                   border: '1px solid rgb(229, 229, 229)',

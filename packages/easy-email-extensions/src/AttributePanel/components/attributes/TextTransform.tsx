@@ -35,7 +35,7 @@ export function TextTransform({ name }: { name?: string }) {
   return useMemo(() => {
     return (
       <SelectField
-        label={t('Text transform')}
+        label={t('Case Transform')}
         name={name || `${focusIdx}.attributes.text-transform`}
         options={options}
       />

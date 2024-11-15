@@ -1,5 +1,10 @@
 import React from 'react';
-import { ColorPickerField, EditTabField, SelectField, TextField } from '@extensions/components/Form';
+import {
+  ColorPickerField,
+  EditTabField,
+  SelectField,
+  TextField,
+} from '@extensions/components/Form';
 import { Align } from '@extensions/AttributePanel/components/attributes/Align';
 import { AttributesPanelWrapper } from '@extensions/AttributePanel/components/attributes/AttributesPanelWrapper';
 import { Collapse, Grid, Space } from '@arco-design/web-react';
@@ -70,7 +75,7 @@ export function Navbar() {
         </Collapse.Item>
         <Collapse.Item
           name='4'
-          header={t('Extra')}
+          header={t('ExtraAttribute')}
         >
           <Grid.Col span={24}>
             <ClassName />

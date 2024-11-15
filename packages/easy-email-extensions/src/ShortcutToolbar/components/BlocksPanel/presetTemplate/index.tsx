@@ -47,7 +47,7 @@ export const defaultCategories = [
             >
               <TextStyle>
                 {t(
-                  'Displays a responsive image in your email. It is similar to the HTML \'&lt;img/&gt;\' tag. Note that if no width is provided, the image will use the parent column width.',
+                  "Displays a responsive image in your email. It is similar to the HTML '&lt;img/&gt;' tag. Note that if no width is provided, the image will use the parent column width.",
                 )}
               </TextStyle>
             </Stack>
@@ -72,7 +72,7 @@ export const defaultCategories = [
         },
         get description() {
           return t(
-            'This block displays a hero image. It behaves like an \'section\' with a single \'column\'.',
+            "This block displays a hero image. It behaves like an 'section' with a single 'column'.",
           );
         },
         component: HeroBlockItem,
@@ -130,7 +130,7 @@ export const defaultCategories = [
         },
         get description() {
           return t(
-            'This block displays a gallery of images or \'carousel\'. Readers can interact by hovering and clicking on thumbnails depending on the email client they use.',
+            'This block displays a gallery of images or carousel. Readers can interact by hovering and clicking on thumbnails depending on the email client they use.',
           );
         },
         component: CarouselBlockItem,
@@ -217,15 +217,14 @@ export const defaultCategories = [
               spacing='none'
             >
               <TextStyle>
-                {t(`Columns enable you to horizontally organize the content within
-                your sections. They must be located under "Section" block in order
-                to be considered by the engine. To be responsive, columns are
-                expressed in terms of percentage.`)}
+                {t(
+                  'Columns enable you to horizontally organize the content within your sections. They must be located under Section block in order to be considered by the engine. To be responsive, columns are expressed in terms of percentage.',
+                )}
               </TextStyle>
               <TextStyle>
-                {t(`Every single column has to contain something because they are
-                responsive containers, and will be vertically stacked on a mobile
-                view.`)}
+                {t(
+                  'Every single column has to contain something because they are responsive containers, and will be vertically stacked on a mobile view.',
+                )}
               </TextStyle>
             </Stack>
           );

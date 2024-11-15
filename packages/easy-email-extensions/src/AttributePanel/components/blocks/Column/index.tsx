@@ -49,7 +49,7 @@ export function Column() {
         </Collapse.Item>
         <Collapse.Item
           name='4'
-          header={t('Extra')}
+          header={t('ExtraAttribute')}
         >
           <Grid.Col span={24}>
             <ClassName />

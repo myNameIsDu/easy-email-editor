@@ -118,7 +118,7 @@ export function Social() {
 
         <Collapse.Item
           name='2'
-          header={t('Social item')}
+          header={t('Social List')}
           contentStyle={{ padding: 10 }}
         >
           <EditGridTabField
@@ -174,7 +174,7 @@ export function Social() {
         </Collapse.Item>
         <Collapse.Item
           name='4'
-          header={t('Extra')}
+          header={t('ExtraAttribute')}
         >
           <Grid.Col span={24}>
             <ClassName />

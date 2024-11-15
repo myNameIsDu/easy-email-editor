@@ -3,7 +3,7 @@ import { useEditorProps, useFocusIdx } from 'easy-email-editor';
 import React, { useEffect } from 'react';
 import { InteractivePrompt } from '../InteractivePrompt';
 import styles from './index.module.scss';
-import enUS from '@arco-design/web-react/es/locale/en-US';
+import zhCn from '@arco-design/web-react/es/locale/zh-CN';
 import { MergeTagBadgePrompt } from '@extensions/MergeTagBadgePrompt';
 import { EditPanel } from '../EditPanel';
 import { ConfigurationPanel } from '@extensions/ConfigurationPanel';
@@ -109,7 +109,7 @@ export const StandardLayout: React.FC<ExtensionProps> = props => {
       {...props}
       categories={categories}
     >
-      <ConfigProvider locale={enUS}>
+      <ConfigProvider locale={zhCn}>
         <Card
           style={{ padding: 0 }}
           bodyStyle={{
