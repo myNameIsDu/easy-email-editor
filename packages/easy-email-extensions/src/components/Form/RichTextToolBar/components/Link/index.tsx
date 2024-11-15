@@ -40,7 +40,7 @@ function getLinkNode(
 }
 
 export function Link(props: LinkProps) {
-
+  const [tooltipVisible, setTooltipVisible] = React.useState(false);
   const initialValues = useMemo((): LinkParams => {
     let link = '';
     let blank = true;
@@ -62,8 +62,9 @@ export function Link(props: LinkProps) {
   const onSubmit = useCallback(
     (values: LinkParams) => {
       props.onChange(values);
+      setTooltipVisible(false);
     },
-    [props]
+    [props],
   );
 
   return (
@@ -80,7 +81,12 @@ export function Link(props: LinkProps) {
             trigger='click'
             color='#fff'
             position='tl'
-            content={(
+            popupVisible={tooltipVisible}
+            onVisibleChange={visible => {
+              setTooltipVisible(visible);
+            }}
+            content={
+              // eslint-disable-next-line react/jsx-wrap-multilines
               <div style={{ color: '#333' }}>
                 <Stack vertical spacing='none'>
                   <SearchField
@@ -124,7 +130,7 @@ export function Link(props: LinkProps) {
                   </Grid.Col>
                 </Grid.Row>
               </div>
-            )}
+            }
           >
             <ToolItem isActive={Boolean(initialValues.link)} title={t('Link')} icon={<IconFont iconName='icon-link' />} />
           </Tooltip>
