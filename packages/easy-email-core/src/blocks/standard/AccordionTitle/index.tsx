@@ -22,7 +22,7 @@ export const AccordionTitle: IBlock = createBlock({
     return t('Accordion title');
   },
   type: BasicType.ACCORDION_TITLE,
-  create: (payload) => {
+  create: payload => {
     const defaultData: IAccordionTitle = {
       type: BasicType.ACCORDION_TITLE,
       data: {
@@ -38,10 +38,13 @@ export const AccordionTitle: IBlock = createBlock({
     };
     return merge(defaultData, payload);
   },
-  validParentType: [BasicType.ACCORDION],
+  validParentType: [BasicType.ACCORDION_ELEMENT],
   render(params) {
     return (
-      <BasicBlock params={params} tag='mj-accordion-title'>
+      <BasicBlock
+        params={params}
+        tag='mj-accordion-title'
+      >
         {params.data.data.value.content}
       </BasicBlock>
     );
