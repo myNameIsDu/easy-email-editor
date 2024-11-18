@@ -14,9 +14,9 @@ api.interceptors.response.use(
     return config;
   },
   error => {
-    if (error?.response?.status === 401) {
-      window.location.href = '/login';
-    }
+    // if (error?.response?.status === 401) {
+    //   window.location.href = '/login';
+    // }
     if (error.response?.data?.message) {
       return Promise.reject(new Error(error.response?.data?.message));
     }

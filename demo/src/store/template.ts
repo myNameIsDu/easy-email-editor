@@ -52,7 +52,15 @@ export default createSliceState({
         subject: 'Welcome to Easy-email',
         subTitle: 'Nice to meet you!',
         content: BlockManager.getBlockByType(BasicType.PAGE).create({
-          children: [BlockManager.getBlockByType(AdvancedType.WRAPPER).create()],
+          children: [
+            BlockManager.getBlockByType(BasicType.WRAPPER).create({
+              children: [
+                BlockManager.getBlockByType(BasicType.SECTION).create({
+                  children: [BlockManager.getBlockByType(BasicType.COLUMN).create({})],
+                }),
+              ],
+            }),
+          ],
         }),
       } as IEmailTemplate;
     },

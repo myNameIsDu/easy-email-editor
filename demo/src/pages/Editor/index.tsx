@@ -36,7 +36,12 @@ import { FormApi } from 'final-form';
 import { UserStorage } from '@demo/utils/user-storage';
 
 import { AdvancedType, BasicType, IBlockData, JsonToMjml } from 'easy-email-core';
-import { ExtensionProps, MjmlToJson, StandardLayout } from 'easy-email-extensions';
+import {
+  ExtensionProps,
+  MjmlToJson,
+  SimpleLayout,
+  StandardLayout,
+} from 'easy-email-extensions';
 import { AutoSaveAndRestoreEmail } from '@demo/components/AutoSaveAndRestoreEmail';
 
 // Register external blocks
@@ -57,39 +62,107 @@ import enUS from '@arco-design/web-react/es/locale/en-US';
 
 import { useShowCommercialEditor } from '@demo/hooks/useShowCommercialEditor';
 
+import locales from 'easy-email-localization/locales/locales.json';
+
 const defaultCategories: ExtensionProps['categories'] = [
   {
     label: 'Content',
     active: true,
     blocks: [
+      // {
+      //   type: BasicType.WRAPPER,
+      // },
+      // {
+      //   type: BasicType.SECTION,
+      // },
+      // {
+      //   type: BasicType.COLUMN,
+      // },
+      // {
+      //   type: BasicType.GROUP,
+      // },
       {
-        type: AdvancedType.TEXT,
+        type: BasicType.TEXT,
       },
       {
-        type: AdvancedType.IMAGE,
-        payload: { attributes: { padding: '0px 0px 0px 0px' } },
+        type: BasicType.IMAGE,
       },
       {
-        type: AdvancedType.BUTTON,
+        type: BasicType.DIVIDER,
       },
       {
-        type: AdvancedType.SOCIAL,
+        type: BasicType.SPACER,
       },
       {
-        type: AdvancedType.DIVIDER,
+        type: BasicType.BUTTON,
+      },
+      // {
+      //   type: BasicType.RAW,
+      // },
+      // {
+      //   type: BasicType.ACCORDION,
+      // },
+      // {
+      //   type: BasicType.ACCORDION_ELEMENT,
+      // },
+      // {
+      //   type: BasicType.ACCORDION_TEXT,
+      // },
+      // {
+      //   type: BasicType.ACCORDION_TITLE,
+      // },
+      // {
+      //   type: BasicType.HERO,
+      // },
+      // {
+      //   type: BasicType.CAROUSEL,
+      // },
+      {
+        type: BasicType.NAVBAR,
       },
       {
-        type: AdvancedType.SPACER,
-      },
-      {
-        type: AdvancedType.HERO,
-      },
-      {
-        type: AdvancedType.WRAPPER,
+        type: BasicType.SOCIAL,
       },
       {
         type: AdvancedType.TABLE,
       },
+      // {
+      //   type: BasicType.TABLE,
+      // },
+      // {
+      //   type: BasicType.TEMPLATE,
+      // },
+      // {
+      //   type: AdvancedType.IMAGE,
+      //   payload: { attributes: { padding: '0px 0px 0px 0px' } },
+      // },
+      // {
+      //   type: AdvancedType.BUTTON,
+      // },
+      // {
+      //   type: AdvancedType.SOCIAL,
+      // },
+      // {
+      //   type: AdvancedType.DIVIDER,
+      // },
+      // {
+      //   type: AdvancedType.SPACER,
+      // },
+      // {
+      //   type: AdvancedType.HERO,
+      // },
+      // {
+      //   type: AdvancedType.WRAPPER,
+      // },
+      // {
+      //   type: AdvancedType.SECTION,
+      // },
+      // {
+      //   type: AdvancedType.TABLE,
+      // },
+      // {
+      //   type: AdvancedType.ACCORDION,
+      // },
     ],
   },
   {
@@ -97,6 +170,10 @@ const defaultCategories: ExtensionProps['categories'] = [
     active: true,
     displayType: 'column',
     blocks: [
+      {
+        title: '1 column',
+        payload: [['100%']],
+      },
       {
         title: '2 columns',
         payload: [
@@ -337,21 +414,21 @@ export default function Editor() {
     };
   }, [templateData]);
 
-  const onSubmit = useCallback(
-    async (values: IEmailTemplate) => {
-      console.log(values);
-    },
-    [dispatch, history, id, initialValues],
-  );
+  // const onSubmit = useCallback(
+  //   async (values: IEmailTemplate) => {
+  //     console.log(values);
+  //   },
+  //   [dispatch, history, id, initialValues],
+  // );
 
-  const onBeforePreview: EmailEditorProviderProps['onBeforePreview'] = useCallback(
-    (html: string, mergeTags) => {
-      const engine = new Liquid();
-      const tpl = engine.parse(html);
-      return engine.renderSync(tpl, mergeTags);
-    },
-    [],
-  );
+  // const onBeforePreview: EmailEditorProviderProps['onBeforePreview'] = useCallback(
+  //   (html: string, mergeTags) => {
+  //     const engine = new Liquid();
+  //     const tpl = engine.parse(html);
+  //     return engine.renderSync(tpl, mergeTags);
+  //   },
+  //   [],
+  // );
 
   if (!templateData && loading) {
     return (
@@ -373,13 +450,17 @@ export default function Editor() {
           data={initialValues}
           onUploadImage={onUploadImage}
           fontList={fontList}
-          onSubmit={onSubmit}
-          onChangeMergeTag={onChangeMergeTag}
+          onAddCollection={payload => {
+            localStorage.setItem(payload.id, JSON.stringify(payload));
+          }}
+          // onSubmit={onSubmit}
+          // onChangeMergeTag={onChangeMergeTag}
           autoComplete
           dashed={false}
-          mergeTags={mergeTags}
-          mergeTagGenerate={tag => `{{${tag}}}`}
-          onBeforePreview={onBeforePreview}
+          // mergeTags={mergeTags}
+          // mergeTagGenerate={tag => `{{${tag}}}`}
+          // onBeforePreview={onBeforePreview}
+          locale={locales['zh-Hans']}
         >
           {({ values }, { submit, restart }) => {
             return (
@@ -454,9 +535,16 @@ export default function Editor() {
                   }
                 />
 
-                <StandardLayout categories={defaultCategories}>
+                <StandardLayout
+                  // compact={false}
+                  // showSourceCode={false}
+                  categories={defaultCategories}
+                >
                   <EmailEditor />
                 </StandardLayout>
+                {/* <SimpleLayout>
+                  <EmailEditor />
+                </SimpleLayout> */}
                 <AutoSaveAndRestoreEmail />
               </>
             );
