@@ -5,8 +5,11 @@ import { SelectField, TextField } from '../../../components/Form';
 import { Grid, Popover, Space, Button as ArcoButton } from '@arco-design/web-react';
 import { MergeTags } from './MergeTags';
 import { useField } from 'react-final-form';
+import { useEditorProps } from 'easy-email-editor';
 
 export function Link() {
+  const { mergeTags } = useEditorProps();
+
   const { focusIdx } = useFocusIdx();
   const { input } = useField(`${focusIdx}.attributes.href`, {
     parse: v => v,
@@ -19,22 +22,26 @@ export function Link() {
           <TextField
             prefix={<IconLink />}
             label={
+              // eslint-disable-next-line react/jsx-wrap-multilines
               <Space>
                 <span>{t('Href')}&nbsp;&nbsp;&nbsp;</span>
-                <Popover
-                  trigger='click'
-                  content={
-                    <MergeTags
-                      value={input.value}
-                      onChange={input.onChange}
+                {mergeTags && (
+                  <Popover
+                    trigger='click'
+                    content={
+                      // eslint-disable-next-line react/jsx-wrap-multilines
+                      <MergeTags
+                        value={input.value}
+                        onChange={input.onChange}
+                      />
+                    }
+                  >
+                    <ArcoButton
+                      type='text'
+                      icon={<IconFont iconName='icon-merge-tags' />}
                     />
-                  }
-                >
-                  <ArcoButton
-                    type='text'
-                    icon={<IconFont iconName='icon-merge-tags' />}
-                  />
-                </Popover>
+                  </Popover>
+                )}
               </Space>
             }
             name={`${focusIdx}.attributes.href`}
