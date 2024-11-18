@@ -28,9 +28,6 @@ export function Blocks() {
               name={cat.label}
               header={t(cat.label)}
             >
-              <Space direction='vertical'>
-                <div />
-              </Space>
               {cat.blocks.map(item => (
                 <LayoutItem
                   key={item.title}
@@ -38,10 +35,6 @@ export function Blocks() {
                   columns={item.payload}
                 />
               ))}
-
-              <Space direction='vertical'>
-                <div />
-              </Space>
             </Collapse.Item>
           );
         }
