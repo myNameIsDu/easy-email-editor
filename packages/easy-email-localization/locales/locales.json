@@ -475,6 +475,8 @@
     "Table": "表格",
     "Make it easy for everyone to compose emails!": "让每个人都可以轻松撰写电子邮件！",
     "Accordion text": "手风琴文字",
-    "Raw": "Raw"
+    "Raw": "Raw",
+    "Drop a content block here": "请拖拽内容组件",
+    "Drop a Column block here": "请拖布局组件"
   }
 }
