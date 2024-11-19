@@ -3,10 +3,7 @@ import React, { useMemo } from 'react';
 
 export interface CollectedBlock {
   label: string;
-  helpText: string;
-  thumbnail: string;
   data: IBlockData;
-  id: string;
 }
 
 export interface BlockGroup {
