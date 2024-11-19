@@ -57,12 +57,12 @@ export const Page = createBlock<IPage>({
           fonts: [],
           responsive: true,
           'font-family':
-            '-apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Cantarell\', \'Fira Sans\', \'Droid Sans\',\'Helvetica Neue\', sans-serif',
+            "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans','Helvetica Neue', sans-serif",
           'text-color': '#000000',
         },
       },
       attributes: {
-        'background-color': '#efeeea',
+        'background-color': '#ffffff',
         width: '600px',
       },
       children: [Wrapper.create()],
