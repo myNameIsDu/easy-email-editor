@@ -35,7 +35,13 @@ import { pushEvent } from '@demo/utils/pushEvent';
 import { FormApi } from 'final-form';
 import { UserStorage } from '@demo/utils/user-storage';
 
-import { AdvancedType, BasicType, IBlockData, JsonToMjml } from 'easy-email-core';
+import {
+  AdvancedType,
+  BasicType,
+  BlockManager,
+  IBlockData,
+  JsonToMjml,
+} from 'easy-email-core';
 import {
   ExtensionProps,
   MjmlToJson,
@@ -63,6 +69,63 @@ import enUS from '@arco-design/web-react/es/locale/en-US';
 import { useShowCommercialEditor } from '@demo/hooks/useShowCommercialEditor';
 
 import locales from 'easy-email-localization/locales/locales.json';
+import './index.scss';
+import html2canvas from 'html2canvas';
+
+const customObj = {
+  label: '12312',
+  data: {
+    type: 'advanced_table',
+    data: {
+      value: {
+        tableSource: [
+          [
+            {
+              content: 'header1',
+            },
+            {
+              content: 'header2',
+            },
+            {
+              content: 'header3',
+            },
+          ],
+          [
+            {
+              content: 'body1-1',
+            },
+            {
+              content: 'body1-2',
+            },
+            {
+              content: 'body1-3',
+            },
+          ],
+          [
+            {
+              content: 'body2-1',
+            },
+            {
+              content: 'body2-2',
+            },
+            {
+              content: 'body2-3',
+            },
+          ],
+        ],
+      },
+    },
+    attributes: {
+      cellBorderColor: '#000000',
+      cellPadding: '8px',
+      'text-align': 'center',
+      padding: '   ',
+    },
+    children: [],
+  },
+  thumbnail: 'http://12123123',
+  id: '85d2b021-7c83-41fe-a3c2-389c81ef8ca7',
+};
 
 const defaultCategories: ExtensionProps['categories'] = [
   {
@@ -203,37 +266,15 @@ const defaultCategories: ExtensionProps['categories'] = [
     active: true,
     displayType: 'custom',
     blocks: [
-      <BlockAvatarWrapper type={CustomBlocksType.PRODUCT_RECOMMENDATION}>
-        <div
-          style={{
-            position: 'relative',
-            border: '1px solid #ccc',
-            marginBottom: 20,
-            width: '80%',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
-        >
-          <img
-            src={
-              'http://res.cloudinary.com/dwkp0e1yo/image/upload/v1665841389/ctbjtig27parugrztdhk.png'
-            }
-            style={{
-              maxWidth: '100%',
-            }}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              zIndex: 2,
-            }}
-          />
-        </div>
-      </BlockAvatarWrapper>,
+      // <div className='custom-block-container'>
+      //   <BlockAvatarWrapper
+      //     type={customObj.data.type}
+      //     payload={customObj.data}
+      //   >
+      //     <div className='custom-block-header'>{customObj.label}</div>
+      //     <div className='custom-block-body'>{customObj.helpText}</div>
+      //   </BlockAvatarWrapper>
+      // </div>,
     ],
   },
 ];
@@ -258,6 +299,81 @@ const fontList = [
 ].map(item => ({ value: item, label: item }));
 
 export default function Editor() {
+  const [categories, setCategories] = useState(defaultCategories);
+  const [customBlocks, setCustomBlocks] = useState([customObj]);
+
+  const transformCustomBlocks = useCallback(customObj => {
+    const wrappedBlockWithPage = BlockManager.getBlockByType(BasicType.PAGE).create({
+      children: [customObj.data],
+    });
+    const mjmlString = JsonToMjml({
+      data: wrappedBlockWithPage,
+      mode: 'production',
+      context: wrappedBlockWithPage,
+      dataSource: {},
+    });
+
+    const html = mjml(mjmlString, { validationLevel: 'skip' }).html;
+    const iframe = document.createElement('iframe');
+    document.body.appendChild(iframe); // 👈 still required
+    iframe.style.position = 'fixed';
+    iframe.style.top = '-9999px';
+    iframe.contentWindow.document.open();
+    iframe.contentWindow.document.write(html);
+    iframe.contentWindow.document.close();
+    return html2canvas(iframe.contentWindow.document.body, {
+      // foreignObjectRendering: true,
+      allowTaint: true,
+      useCORS: true,
+    }).then(canvas => {
+      return canvas.toDataURL();
+    });
+  }, []);
+
+  // useEffect(() => {
+  //   const wrappedBlockWithPage = BlockManager.getBlockByType(BasicType.PAGE).create({
+  //     children: [customObj.data],
+  //   });
+  //   const mjmlString = JsonToMjml({
+  //     data: wrappedBlockWithPage,
+  //     mode: 'production',
+  //     context: wrappedBlockWithPage,
+  //     dataSource: {},
+  //   });
+
+  //   const html = mjml(mjmlString, { validationLevel: 'skip' }).html;
+  //   const iframe = document.createElement('iframe');
+  //   document.body.appendChild(iframe); // 👈 still required
+  //   iframe.style.position = 'fixed';
+  //   iframe.style.top = '-9999px';
+  //   iframe.contentWindow.document.open();
+  //   iframe.contentWindow.document.write(html);
+  //   iframe.contentWindow.document.close();
+  //   html2canvas(iframe.contentWindow.document.body, {
+  //     foreignObjectRendering: true,
+  //     // onrendered: function (newCanvas) {
+  //     //   document.body.appendChild(newCanvas);
+  //     // },
+  //   }).then(canvas => {
+  //     var dataURL = canvas.toDataURL();
+  //     const newCategories = [...categories];
+  //     newCategories[2].blocks.push(
+  //       <div className='custom-block-container'>
+  //         <BlockAvatarWrapper
+  //           type={customObj.data.type}
+  //           payload={customObj.data}
+  //         >
+  //           <div className='custom-block-header'>{customObj.label}</div>
+  //           <div
+  //             className='custom-block-body'
+  //             style={{ backgroundImage: `url(${dataURL})`, color: 'red' }}
+  //           ></div>
+  //         </BlockAvatarWrapper>
+  //       </div>,
+  //     );
+  //     setCategories(newCategories);
+  //   });
+  // }, [customBlocks]);
   const { featureEnabled } = useShowCommercialEditor();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -451,7 +567,24 @@ export default function Editor() {
           onUploadImage={onUploadImage}
           fontList={fontList}
           onAddCollection={payload => {
-            localStorage.setItem(payload.id, JSON.stringify(payload));
+            transformCustomBlocks(payload).then(dataURL => {
+              const newCategories = [...categories];
+              newCategories[2].blocks.push(
+                <div className='custom-block-container'>
+                  <BlockAvatarWrapper
+                    type={payload.data.type}
+                    payload={payload.data}
+                  >
+                    <div className='custom-block-header'>{payload.label}</div>
+                    <div
+                      className='custom-block-body'
+                      style={{ backgroundImage: `url(${dataURL})`, color: 'red' }}
+                    ></div>
+                  </BlockAvatarWrapper>
+                </div>,
+              );
+              setCategories(newCategories);
+            });
           }}
           // onSubmit={onSubmit}
           // onChangeMergeTag={onChangeMergeTag}
@@ -538,7 +671,7 @@ export default function Editor() {
                 <StandardLayout
                   // compact={false}
                   // showSourceCode={false}
-                  categories={defaultCategories}
+                  categories={categories}
                 >
                   <EmailEditor />
                 </StandardLayout>
