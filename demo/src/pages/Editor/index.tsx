@@ -300,7 +300,6 @@ const fontList = [
 
 export default function Editor() {
   const [categories, setCategories] = useState(defaultCategories);
-  const [customBlocks, setCustomBlocks] = useState([customObj]);
 
   const transformCustomBlocks = useCallback(customObj => {
     const wrappedBlockWithPage = BlockManager.getBlockByType(BasicType.PAGE).create({
@@ -330,50 +329,6 @@ export default function Editor() {
     });
   }, []);
 
-  // useEffect(() => {
-  //   const wrappedBlockWithPage = BlockManager.getBlockByType(BasicType.PAGE).create({
-  //     children: [customObj.data],
-  //   });
-  //   const mjmlString = JsonToMjml({
-  //     data: wrappedBlockWithPage,
-  //     mode: 'production',
-  //     context: wrappedBlockWithPage,
-  //     dataSource: {},
-  //   });
-
-  //   const html = mjml(mjmlString, { validationLevel: 'skip' }).html;
-  //   const iframe = document.createElement('iframe');
-  //   document.body.appendChild(iframe); // 👈 still required
-  //   iframe.style.position = 'fixed';
-  //   iframe.style.top = '-9999px';
-  //   iframe.contentWindow.document.open();
-  //   iframe.contentWindow.document.write(html);
-  //   iframe.contentWindow.document.close();
-  //   html2canvas(iframe.contentWindow.document.body, {
-  //     foreignObjectRendering: true,
-  //     // onrendered: function (newCanvas) {
-  //     //   document.body.appendChild(newCanvas);
-  //     // },
-  //   }).then(canvas => {
-  //     var dataURL = canvas.toDataURL();
-  //     const newCategories = [...categories];
-  //     newCategories[2].blocks.push(
-  //       <div className='custom-block-container'>
-  //         <BlockAvatarWrapper
-  //           type={customObj.data.type}
-  //           payload={customObj.data}
-  //         >
-  //           <div className='custom-block-header'>{customObj.label}</div>
-  //           <div
-  //             className='custom-block-body'
-  //             style={{ backgroundImage: `url(${dataURL})`, color: 'red' }}
-  //           ></div>
-  //         </BlockAvatarWrapper>
-  //       </div>,
-  //     );
-  //     setCategories(newCategories);
-  //   });
-  // }, [customBlocks]);
   const { featureEnabled } = useShowCommercialEditor();
   const dispatch = useDispatch();
   const history = useHistory();
