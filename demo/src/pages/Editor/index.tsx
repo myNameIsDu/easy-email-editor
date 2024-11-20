@@ -28,7 +28,7 @@ import {
   EmailEditorProvider,
   EmailEditorProviderProps,
   IEmailTemplate,
-} from 'easy-email-editor';
+} from '@hy/easy-email-editor';
 
 import { Stack } from '@demo/components/Stack';
 import { pushEvent } from '@demo/utils/pushEvent';
@@ -41,20 +41,20 @@ import {
   BlockManager,
   IBlockData,
   JsonToMjml,
-} from 'easy-email-core';
+} from '@hy/easy-email-core';
 import {
   ExtensionProps,
   MjmlToJson,
   SimpleLayout,
   StandardLayout,
-} from 'easy-email-extensions';
+} from '@hy/easy-email-extensions';
 import { AutoSaveAndRestoreEmail } from '@demo/components/AutoSaveAndRestoreEmail';
 
 // Register external blocks
 import './components/CustomBlocks';
 
-import 'easy-email-editor/lib/style.css';
-import 'easy-email-extensions/lib/style.css';
+import '@hy/easy-email-editor/lib/style.css';
+import '@hy/easy-email-extensions/lib/style.css';
 import blueTheme from '@arco-themes/react-easy-email-theme/css/arco.css?inline';
 import purpleTheme from '@arco-themes/react-easy-email-theme-purple/css/arco.css?inline';
 import greenTheme from '@arco-themes/react-easy-email-theme-green/css/arco.css?inline';
@@ -68,7 +68,7 @@ import enUS from '@arco-design/web-react/es/locale/en-US';
 
 import { useShowCommercialEditor } from '@demo/hooks/useShowCommercialEditor';
 
-import locales from 'easy-email-localization/locales/locales.json';
+import locales from '@hy/easy-email-localization/locales/locales.json';
 import './index.scss';
 import html2canvas from 'html2canvas';
 

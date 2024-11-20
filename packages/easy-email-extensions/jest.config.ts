@@ -11,7 +11,7 @@ export default {
   coverageProvider: 'babel',
   moduleNameMapper: {
     '@core/(.+)': path.join(__dirname, '../easy-email-core/src/$1'),
-    '^easy-email-core$': path.join(__dirname, '../easy-email-core/src/index.tsx'),
+    '^@hy/easy-email-core$': path.join(__dirname, '../easy-email-core/src/index.tsx'),
     '\\.(css|less|scss|sass)$': '<rootDir>/__mocks__/styleMock.js',
   },
   testMatch: ['<rootDir>/src/**/__tests__/**/*.[jt]s?(x)'],

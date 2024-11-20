@@ -1,4 +1,4 @@
-import { ImageManager } from 'easy-email-core';
+import { ImageManager } from '@hy/easy-email-core';
 import imageDefault from '../../images/image-default.png';
 
 const defaultImagesMap = {

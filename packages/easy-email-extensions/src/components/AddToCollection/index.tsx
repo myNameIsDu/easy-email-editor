@@ -1,5 +1,5 @@
 import { Modal } from '@arco-design/web-react';
-import { Stack, useBlock, useEditorProps } from 'easy-email-editor';
+import { Stack, useBlock, useEditorProps } from '@hy/easy-email-editor';
 import React from 'react';
 import { Form } from 'react-final-form';
 import { TextField } from '../Form';
