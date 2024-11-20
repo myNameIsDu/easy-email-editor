@@ -43,6 +43,7 @@ export interface ExtensionProps extends BlockLayerProps {
   jsonReadOnly?: boolean;
   mjmlReadOnly?: boolean;
   compact?: boolean;
+  cardBorder?: boolean;
 }
 
 export const ExtensionContext = React.createContext<ExtensionProps>({

@@ -94,6 +94,7 @@ export const StandardLayout: React.FC<ExtensionProps> = props => {
     categories = defaultCategories,
     jsonReadOnly = false,
     mjmlReadOnly = true,
+    cardBorder = true,
   } = props;
 
   const { setFocusIdx } = useFocusIdx();
@@ -111,7 +112,8 @@ export const StandardLayout: React.FC<ExtensionProps> = props => {
     >
       <ConfigProvider locale={zhCn}>
         <Card
-          style={{ padding: 0 }}
+          bordered={cardBorder}
+          style={{ padding: 0, height: containerHeight }}
           bodyStyle={{
             padding: 0,
             height: containerHeight,
@@ -123,7 +125,7 @@ export const StandardLayout: React.FC<ExtensionProps> = props => {
             style={{
               display: 'flex',
               width: '100%',
-              overflow: 'hidden',
+              height: containerHeight,
             }}
           >
             {compact && (
