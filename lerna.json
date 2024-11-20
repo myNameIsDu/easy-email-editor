@@ -1,20 +1,16 @@
 {
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "npmClient": "npm",
   "command": {
     "publish": {
       "ignoreChanges": [],
       "message": "chore(release): publish",
-      "registry": "https://registry.npmjs.org"
+      "registry": "https://npm.hypers.cc/"
     },
     "bootstrap": {
       "ignore": "component-*",
-      "npmClientArgs": [
-        "--no-package-lock"
-      ]
+      "npmClientArgs": ["--no-package-lock"]
     }
   },
-  "version": "4.16.1"
+  "version": "0.0.1"
 }
