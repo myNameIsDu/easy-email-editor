@@ -36,9 +36,11 @@ export function FocusTooltip() {
         >
           <style>
             {`
+                /*! scopecss-disable */
                 .email-block {
                   position: relative;
                 }
+                /*! scopecss-enable */
 
             `}
           </style>

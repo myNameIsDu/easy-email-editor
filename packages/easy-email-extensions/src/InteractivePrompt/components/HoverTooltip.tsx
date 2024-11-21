@@ -134,9 +134,11 @@ function TipNode(props: TipNodeProps) {
     >
       <style>
         {`
+        /*! scopecss-disable */
         .email-block {
           position: relative;
         }
+        /*! scopecss-enable */
 
       `}
       </style>
