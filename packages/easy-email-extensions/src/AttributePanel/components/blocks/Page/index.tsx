@@ -31,7 +31,7 @@ export function Page({ hideSubTitle, hideSubject }: PageProps) {
             header={t('Email Setting')}
           >
             <Space direction='vertical'>
-              {!hideSubject && (
+              {/* {!hideSubject && (
                 <TextField
                   label={t('Subject')}
                   name={'subject'}
@@ -44,7 +44,7 @@ export function Page({ hideSubTitle, hideSubject }: PageProps) {
                   name={'subTitle'}
                   inline
                 />
-              )}
+              )} */}
               <InputWithUnitField
                 label={t('Width')}
                 name={`${focusIdx}.attributes.width`}
