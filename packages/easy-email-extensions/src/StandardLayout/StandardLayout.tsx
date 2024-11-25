@@ -117,6 +117,7 @@ export const StandardLayout: React.FC<ExtensionProps> = props => {
           bodyStyle={{
             padding: 0,
             height: containerHeight,
+            overflowX: 'auto',
           }}
         >
           <Layout
