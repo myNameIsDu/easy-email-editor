@@ -118,6 +118,7 @@ export const StandardLayout: React.FC<ExtensionProps> = props => {
             padding: 0,
             height: containerHeight,
             overflowX: 'auto',
+            overflowY: 'hidden',
           }}
         >
           <Layout
