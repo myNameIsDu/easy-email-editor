@@ -117,7 +117,6 @@ export const StandardLayout: React.FC<ExtensionProps> = props => {
           bodyStyle={{
             padding: 0,
             height: containerHeight,
-            overflow: 'hidden',
           }}
         >
           <Layout
@@ -135,7 +134,9 @@ export const StandardLayout: React.FC<ExtensionProps> = props => {
                 mjmlReadOnly={mjmlReadOnly}
               />
             )}
-            <Layout style={{ height: containerHeight, flex: 1 }}>{props.children}</Layout>
+            <Layout style={{ height: containerHeight, flex: 1, overflowX: 'visible' }}>
+              {props.children}
+            </Layout>
             {!compact && (
               <EditPanel
                 showSourceCode={showSourceCode}
