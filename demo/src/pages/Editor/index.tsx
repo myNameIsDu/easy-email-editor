@@ -521,7 +521,7 @@ export default function Editor() {
           data={initialValues}
           onUploadImage={onUploadImage}
           fontList={fontList}
-          onAddCollection={payload => {
+          onAddCollection={async payload => {
             transformCustomBlocks(payload).then(dataURL => {
               const newCategories = [...categories];
               newCategories[2].blocks.push(

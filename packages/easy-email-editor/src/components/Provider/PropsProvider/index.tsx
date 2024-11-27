@@ -15,8 +15,7 @@ export interface PropsProviderProps {
   children?: React.ReactNode;
   height: string;
   fontList?: { value: string; label: string }[];
-  onAddCollection?: (payload: CollectedBlock) => void;
-  onRemoveCollection?: (payload: { id: string }) => void;
+  onAddCollection?: (payload: CollectedBlock) => Promise<void>;
   onUploadImage?: (data: Blob) => Promise<string>;
   interactiveStyle?: {
     hoverColor?: string;
@@ -57,7 +56,6 @@ export const EditorPropsContext = React.createContext<
   height: '100vh',
   fontList: [],
   onAddCollection: undefined,
-  onRemoveCollection: undefined,
   onUploadImage: undefined,
   autoComplete: false,
   dashed: true,
