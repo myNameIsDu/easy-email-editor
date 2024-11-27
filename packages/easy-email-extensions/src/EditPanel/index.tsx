@@ -25,7 +25,7 @@ export function EditPanel({
   return (
     <Layout.Sider
       className={styles.blocksPanel}
-      style={{ paddingRight: 0, minWidth: 360 }}
+      style={{ paddingRight: 0, minWidth: 360, zIndex: 11 }}
       // collapsed={collapsed}
       collapsible
       trigger={null}
