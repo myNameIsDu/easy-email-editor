@@ -1,5 +1,5 @@
 import { Collapse, Grid, Space, Typography } from '@arco-design/web-react';
-import { AdvancedType, BlockManager, IBlockData } from '@hy/easy-email-core';
+import { AdvancedType, BasicType, BlockManager, IBlockData } from '@hy/easy-email-core';
 import { BlockAvatarWrapper, IconFont } from '@hy/easy-email-editor';
 import React, { useMemo, useState } from 'react';
 import { IconCaretRight, IconCaretUp } from '@arco-design/web-react/icon';
@@ -133,10 +133,10 @@ function LayoutItem({ columns, title }: { columns: string[][]; title: string }) 
       {columns.map((item, index) => {
         const hide = !visible && index !== 0;
         const payload = {
-          type: AdvancedType.SECTION,
+          type: BasicType.SECTION,
           attributes: {},
           children: item.map(col => ({
-            type: AdvancedType.COLUMN,
+            type: BasicType.COLUMN,
             attributes: {
               width: col,
             },
