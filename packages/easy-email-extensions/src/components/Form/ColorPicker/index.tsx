@@ -42,12 +42,6 @@ export function ColorPicker(props: ColorPickerProps) {
     return getCollapseItemEle(refEle);
   }, [refEle]);
 
-  const inputColor = useMemo(() => {
-    if (props.value?.startsWith('#') && props.value?.length === 7)
-      return props.value?.replace('#', '');
-    return props.value;
-  }, [props.value]);
-
   const adapterColor = useMemo(() => {
     try {
       if (value.length === 6 && Color(`#${value}`).hex()) return `#${value}`;
@@ -63,12 +57,12 @@ export function ColorPicker(props: ColorPickerProps) {
         title={props.label}
         trigger='click'
         className='color-picker-popup'
-        content={(
+        content={
           <ColorPickerContent
             value={adapterColor}
             onChange={onInputChange}
           />
-        )}
+        }
         getPopupContainer={getPopupContainer}
         {...props}
       >
@@ -126,9 +120,10 @@ export function ColorPicker(props: ColorPickerProps) {
       </Popover>
       {showInput && (
         <Input
-          value={inputColor}
+          value={props.value}
           style={{ outline: 'none', flex: 1 }}
           onChange={onInputChange}
+          placeholder='e.g., #000000'
         />
       )}
     </div>
