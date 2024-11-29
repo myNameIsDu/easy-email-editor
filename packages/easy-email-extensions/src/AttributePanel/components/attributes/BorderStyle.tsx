@@ -53,16 +53,14 @@ export const borderStyleOptions = [
   },
 ];
 
-export function BorderStyle() {
+export function BorderStyle({ name }: { name?: string }) {
   const { focusIdx } = useFocusIdx();
 
-  return useMemo(() => {
-    return (
-      <SelectField
-        label={t('lineStyle')}
-        name={`${focusIdx}.attributes.border-style`}
-        options={borderStyleOptions}
-      />
-    );
-  }, [focusIdx]);
+  return (
+    <SelectField
+      label={t('lineStyle')}
+      name={name || `${focusIdx}.attributes.border-style`}
+      options={borderStyleOptions}
+    />
+  );
 }

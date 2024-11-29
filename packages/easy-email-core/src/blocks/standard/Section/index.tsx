@@ -18,7 +18,7 @@ export type ISection = IBlockData<
     border?: string;
     'border-radius'?: string;
     direction?: 'ltr' | 'rtl';
-    'full-width'?: 'ltr' | 'rtl';
+    'full-width'?: 'full-width';
     padding?: string;
     'text-align'?: CSSProperties['textAlign'];
     'max-width'?: string;
@@ -69,7 +69,7 @@ export const Section = createBlock<ISection>({
     if (attributes['full-width']) {
       newParams.data.attributes['full-width'] = 'full-width';
     } else {
-      newParams.data.attributes['full-width'] = '';
+      delete newParams.data.attributes['full-width'];
     }
     return (
       <BasicBlock

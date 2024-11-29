@@ -1,7 +1,7 @@
 import React from 'react';
 import { Padding } from '@extensions/AttributePanel/components/attributes//Padding';
 import { Background } from '@extensions/AttributePanel/components/attributes//Background';
-import { TextField } from '@extensions/components/Form';
+import { BorderInputField, TextField } from '@extensions/components/Form';
 import { AttributesPanelWrapper } from '@extensions/AttributePanel/components/attributes/AttributesPanelWrapper';
 import { Collapse, Grid } from '@arco-design/web-react';
 import { Stack, useFocusIdx } from '@hy/easy-email-editor';
@@ -43,12 +43,7 @@ export function Wrapper() {
             vertical
             spacing='tight'
           >
-            <TextField
-              label={t('Border')}
-              name={`${focusIdx}.attributes.border`}
-              inline
-              placeholder='e.g. 1px solid red'
-            />
+            <BorderInputField name={`${focusIdx}.attributes.border`} />
             <TextField
               label={t('Background border radius')}
               name={`${focusIdx}.attributes.border-radius`}

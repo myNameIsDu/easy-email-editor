@@ -25,8 +25,10 @@ import { InlineText, InlineTextProps } from './InlineTextField';
 import { AutoCompleteProps, AutoComplete } from './AutoComplete';
 import { InputSearchProps } from '@arco-design/web-react/es/Input';
 import { ColorPickerField } from './ColorPickerField';
+import { BorderInput } from '@extensions/AttributePanel/components/attributes/BorderInput';
 
 export { RichTextField } from './RichTextField';
+export const BorderInputField = enhancer(BorderInput, v => v);
 
 export const TextField = enhancer<InputProps>(Input, value => value);
 
