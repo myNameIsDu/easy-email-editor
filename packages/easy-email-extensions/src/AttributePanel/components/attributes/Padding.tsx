@@ -113,6 +113,7 @@ export function Padding(props: PaddingProps = {}) {
                     name='top'
                     autoComplete='off'
                     config={pixelAdapter}
+                    placeholder='e.g. 10'
                   />
                 </Grid.Col>
                 <Grid.Col
@@ -124,6 +125,7 @@ export function Padding(props: PaddingProps = {}) {
                     name='left'
                     autoComplete='off'
                     config={pixelAdapter}
+                    placeholder='e.g. 10'
                   />
                 </Grid.Col>
               </Grid.Row>
@@ -135,6 +137,7 @@ export function Padding(props: PaddingProps = {}) {
                     name='bottom'
                     config={pixelAdapter}
                     autoComplete='off'
+                    placeholder='e.g. 10'
                   />
                 </Grid.Col>
                 <Grid.Col
@@ -146,6 +149,7 @@ export function Padding(props: PaddingProps = {}) {
                     name='right'
                     autoComplete='off'
                     config={pixelAdapter}
+                    placeholder='e.g. 10'
                   />
                 </Grid.Col>
               </Grid.Row>

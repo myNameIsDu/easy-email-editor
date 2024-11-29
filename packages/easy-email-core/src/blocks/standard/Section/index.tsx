@@ -42,9 +42,9 @@ export const Section = createBlock<ISection>({
       attributes: {
         padding: '20px 0px 20px 0px',
         'background-repeat': 'repeat',
-        'background-size': 'auto',
+        'background-size': '',
         'background-position': 'top center',
-        border: 'none',
+        border: '',
         direction: 'ltr',
         'text-align': 'center',
       },
@@ -54,9 +54,26 @@ export const Section = createBlock<ISection>({
   },
   validParentType: [BasicType.PAGE, BasicType.WRAPPER],
   render(params) {
+    const newParams = {
+      ...params,
+      data: {
+        ...params.data,
+        attributes: {
+          ...params.data.attributes,
+        },
+      },
+    };
+    const {
+      data: { attributes },
+    } = newParams;
+    if (attributes['full-width']) {
+      newParams.data.attributes['full-width'] = 'full-width';
+    } else {
+      newParams.data.attributes['full-width'] = '';
+    }
     return (
       <BasicBlock
-        params={params}
+        params={newParams}
         tag='mj-section'
       />
     );

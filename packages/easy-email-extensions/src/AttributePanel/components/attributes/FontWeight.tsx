@@ -62,6 +62,7 @@ export function FontWeight({ name }: { name?: string }) {
         label={t('Font weight')}
         name={name || `${focusIdx}.attributes.font-weight`}
         options={options}
+        placeholder={t('Please select font weight')}
       />
     );
   }, [focusIdx, name]);

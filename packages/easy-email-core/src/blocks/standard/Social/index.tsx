@@ -61,20 +61,20 @@ export const Social: IBlock<ISocial> = createBlock({
     return t('Social');
   },
   type: BasicType.SOCIAL,
-  create: (payload) => {
+  create: payload => {
     const defaultData: ISocial = {
       type: BasicType.SOCIAL,
       data: {
         value: {
           elements: [
             {
-              href: '#',
+              href: '',
               target: '_blank',
               src: getImg('IMAGE_02'),
               content: 'Facebook',
             },
             {
-              href: '#',
+              href: '',
               target: '_blank',
               src: getImg('IMAGE_03'),
               content: 'Google',
@@ -101,6 +101,7 @@ export const Social: IBlock<ISocial> = createBlock({
         'text-padding': '4px 4px 4px 0px',
         'icon-padding': '0px',
         'icon-size': '20px',
+        'font-style': 'normal',
       },
       children: [],
     };
@@ -109,18 +110,24 @@ export const Social: IBlock<ISocial> = createBlock({
   validParentType: [BasicType.COLUMN],
   render(params) {
     const { data } = params;
-    const elements = (data ).data.value.elements
-      .map((element) => {
+    const elements = data.data.value.elements
+      .map(element => {
         const elementAttributeStr = Object.keys(element)
-          .filter((key) => key !== 'content' && element[key as keyof typeof element] !== '') // filter att=""
-          .map((key) => `${key}="${element[key as keyof typeof element]}"`)
+          .filter(key => key !== 'content' && element[key as keyof typeof element] !== '') // filter att=""
+          .map(key => `${key}="${element[key as keyof typeof element]}"`)
           .join(' ');
         return `
           <mj-social-element ${elementAttributeStr}>${element.content}</mj-social-element>
           `;
       })
       .join('\n');
-    return <BasicBlock params={params} tag="mj-social">{elements}</BasicBlock>;
-
+    return (
+      <BasicBlock
+        params={params}
+        tag='mj-social'
+      >
+        {elements}
+      </BasicBlock>
+    );
   },
 });

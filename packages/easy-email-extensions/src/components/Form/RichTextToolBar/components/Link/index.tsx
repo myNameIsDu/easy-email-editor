@@ -95,7 +95,7 @@ export function Link(props: LinkProps) {
                     label={t('Link')}
                     labelHidden
                     searchButton={t('Apply')}
-                    placeholder='https://www.example.com'
+                    placeholder='e.g. https://www.example.com'
                     onSearch={() => handleSubmit()}
                   />
                 </Stack>

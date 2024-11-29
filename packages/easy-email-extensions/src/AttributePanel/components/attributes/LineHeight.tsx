@@ -10,6 +10,7 @@ export function LineHeight({ name }: { name?: string }) {
       label={t('Line height')}
       unitOptions='percent'
       name={name || `${focusIdx}.attributes.line-height`}
+      placeholder='e.g. 1.5'
     />
   );
 }

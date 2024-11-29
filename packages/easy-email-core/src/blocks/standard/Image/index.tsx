@@ -35,7 +35,6 @@ export const Image: IBlock<IImage> = createBlock({
       },
       attributes: {
         align: 'center',
-        height: 'auto',
         padding: '10px 25px 10px 25px',
         src: '',
       },

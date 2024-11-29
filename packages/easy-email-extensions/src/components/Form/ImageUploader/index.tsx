@@ -173,6 +173,7 @@ export function ImageUploader(props: ImageUploaderProps) {
             value={props.value}
             onChange={onChange}
             disabled={isUploading}
+            placeholder='e.g. https://example.com/image.png'
           />
           {props.autoCompleteOptions && (
             <Dropdown

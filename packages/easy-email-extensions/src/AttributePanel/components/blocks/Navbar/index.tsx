@@ -181,6 +181,7 @@ function NavbarLink({
               prefix={<IconLink />}
               label={<span>{t('Url')}</span>}
               name={`${focusIdx}.data.value.links.[${index}].href`}
+              placeholder='https://example.com'
             />
           </Grid.Col>
           <Grid.Col

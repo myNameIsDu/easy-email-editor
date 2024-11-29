@@ -2,14 +2,9 @@ import React, { useMemo } from 'react';
 import { TextField } from '../../../components/Form';
 import { useFocusIdx, Stack } from '@hy/easy-email-editor';
 import { UseFieldConfig } from 'react-final-form';
+import { pixelAdapter } from '../adapter';
 
-export function Height({
-  inline,
-  config,
-}: {
-  inline?: boolean;
-  config?: UseFieldConfig<any>;
-}) {
+export function Height({ inline }: { inline?: boolean; config?: UseFieldConfig<any> }) {
   const { focusIdx } = useFocusIdx();
 
   return useMemo(() => {
@@ -17,11 +12,11 @@ export function Height({
       <Stack wrap={false}>
         <Stack.Item fill>
           <TextField
-            label={t('Height')}
+            label={t('Height(PX)')}
             name={`${focusIdx}.attributes.height`}
             quickchange
-            inline={inline}
-            config={config}
+            config={pixelAdapter}
+            placeholder='e.g. 100'
           />
         </Stack.Item>
       </Stack>

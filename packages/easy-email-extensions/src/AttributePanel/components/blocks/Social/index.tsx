@@ -231,6 +231,7 @@ function SocialElement({
             prefix={<IconLink />}
             label={t('Link')}
             name={`${focusIdx}.data.value.elements.[${index}].href`}
+            placeholder='e.g. https://www.example.com'
           />
         </Grid.Col>
       </Grid.Row>

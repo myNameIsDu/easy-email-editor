@@ -242,7 +242,9 @@
     "Table": "Table",
     "Make it easy for everyone to compose emails!": "Make it easy for everyone to compose emails!",
     "Accordion text": "Accordion text",
-    "Raw": "Raw"
+    "Raw": "Raw",
+    "Please input or select font family": "Please input or select font family",
+    "Please select font weight": "Please select font weight"
   },
   "zh-Hans": {
     "undo": "撤消",
@@ -363,7 +365,7 @@
     "Dimension": "组件布局",
     "AddGroupAutomatically": "自动添加 Group",
     "Border": "边框",
-    "Background border radius": "背景边框圆角半径",
+    "Background border radius": "设置元素圆角",
     "Left": "左边",
     "Right": "右边",
     "top": "顶部",
@@ -440,19 +442,19 @@
     "Left (px)": "左（PX）",
     "Bottom (px)": "底部（PX）",
     "Right (px)": "右（PX）",
-    "No repeat": "没有重复",
+    "No repeat": "不重复",
     "Repeat": "重复",
     "Repeat X": "重复 x",
     "Repeat Y": "重复 y",
     "Background image": "背景图",
-    "Background repeat": "不重复",
+    "Background repeat": "背景重复",
     "Background size": "背景大小",
     "lineStyle": "分割线风格",
     "Vertical align": "垂直对齐",
     "attributes": "属性",
     "left": "左边",
     "center": "中心",
-    "right": "正确的",
+    "right": "右边",
     "Align": "对齐",
     "Height": "高度",
     "Center": "中心",
@@ -477,6 +479,8 @@
     "Accordion text": "手风琴文字",
     "Raw": "Raw",
     "Drop a content block here": "请拖拽内容组件",
-    "Drop a Column block here": "请拖布局组件"
+    "Drop a Column block here": "请拖布局组件",
+    "Please input or select font family": "请输入或者选择字体",
+    "Please select font weight": "请选择字体粗细"
   }
 }

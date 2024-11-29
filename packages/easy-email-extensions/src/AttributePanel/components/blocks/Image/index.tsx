@@ -35,7 +35,7 @@ export function Image() {
 
   return (
     <AttributesPanelWrapper style={{ padding: 0 }}>
-      <CollapseWrapper defaultActiveKey={['0', '1', '2', '3', '4']}>
+      <CollapseWrapper defaultActiveKey={['0', '1', '2', '3']}>
         <Collapse.Item
           name='1'
           header={t('Setting')}
@@ -73,13 +73,13 @@ export function Image() {
           <Space direction='vertical'>
             <Grid.Row>
               <Grid.Col span={11}>
-                <Width config={pixelAdapter} />
+                <Width />
               </Grid.Col>
               <Grid.Col
                 offset={1}
                 span={11}
               >
-                <Height config={imageHeightAdapter} />
+                <Height />
               </Grid.Col>
             </Grid.Row>
 

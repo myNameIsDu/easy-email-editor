@@ -34,7 +34,7 @@ export const Column = createBlock<IColumn>({
       },
       attributes: {
         padding: '0px 0px 0px 0px',
-        border: 'none',
+        border: '',
         'vertical-align': 'top',
       },
       children: [],

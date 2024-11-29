@@ -15,6 +15,7 @@ export type IWrapper = IBlockData<
     direction?: 'ltr' | 'rtl';
     padding?: string;
     'text-align'?: CSSProperties['textAlign'];
+    'background-repeat'?: CSSProperties['backgroundRepeat'];
   },
   {}
 >;
@@ -24,7 +25,7 @@ export const Wrapper = createBlock<IWrapper>({
     return t('Wrapper');
   },
   type: BasicType.WRAPPER,
-  create: (payload) => {
+  create: payload => {
     const defaultData: IWrapper = {
       type: BasicType.WRAPPER,
       data: {
@@ -32,9 +33,10 @@ export const Wrapper = createBlock<IWrapper>({
       },
       attributes: {
         padding: '20px 0px 20px 0px',
-        border: 'none',
+        border: '',
         direction: 'ltr',
         'text-align': 'center',
+        'background-repeat': 'repeat',
       },
       children: [],
     };
@@ -42,6 +44,11 @@ export const Wrapper = createBlock<IWrapper>({
   },
   validParentType: [BasicType.PAGE],
   render(params) {
-    return <BasicBlock params={params} tag="mj-wrapper" />;
+    return (
+      <BasicBlock
+        params={params}
+        tag='mj-wrapper'
+      />
+    );
   },
 });

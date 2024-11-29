@@ -1,18 +1,21 @@
 import React, { useCallback } from 'react';
-import { InputWithUnitField } from '../../../components/Form';
+import { TextField } from '../../../components/Form';
 import { useFocusIdx, useBlock } from '@hy/easy-email-editor';
 import { BasicType, getParentByIdx } from '@hy/easy-email-core';
 import { InputWithUnitProps } from '@extensions/components/Form/InputWithUnit';
 import { UseFieldConfig } from 'react-final-form';
+import { percentAdapter } from '../adapter';
 
 export function Width({
   inline = false,
   unitOptions,
   config,
+  ...rest
 }: {
   inline?: boolean;
   unitOptions?: InputWithUnitProps['unitOptions'];
   config?: UseFieldConfig<any>;
+  placeholder?: string;
 }) {
   const { focusIdx } = useFocusIdx();
   const { focusBlock, values } = useBlock();
@@ -31,13 +34,14 @@ export function Width({
   );
 
   return (
-    <InputWithUnitField
+    <TextField
       validate={validate}
-      label={t('Width')}
+      label={t('Width(%)')}
       inline={inline}
+      config={percentAdapter}
       name={`${focusIdx}.attributes.width`}
-      unitOptions={unitOptions}
-      config={config}
+      placeholder='e.g. 100%'
+      {...rest}
     />
   );
 }

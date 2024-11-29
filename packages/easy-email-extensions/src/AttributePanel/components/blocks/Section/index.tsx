@@ -8,7 +8,7 @@ import { Stack, useBlock, useFocusIdx } from '@hy/easy-email-editor';
 import { BasicType, BlockManager } from '@hy/easy-email-core';
 import { ClassName } from '../../attributes/ClassName';
 import { CollapseWrapper } from '../../attributes/CollapseWrapper';
-import { TextField } from '@extensions/components/Form';
+import { SwitchField, TextField } from '@extensions/components/Form';
 
 export function Section() {
   const { focusBlock, setFocusBlock } = useBlock();
@@ -71,7 +71,7 @@ export function Section() {
                 <label style={{ width: '100%', display: 'flex' }}>
                   <div style={{ flex: 1 }}>{t('Full Width')}</div>
                 </label>
-                <TextField name={`${focusIdx}.attributes.full-width`} />
+                <SwitchField name={`${focusIdx}.attributes.full-width`} />
               </Grid.Col>
               <Grid.Col span={12} />
             </Grid.Row>

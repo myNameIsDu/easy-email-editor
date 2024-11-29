@@ -67,6 +67,7 @@ export function Background() {
         <TextField
           label={t('Background size')}
           name={`${focusIdx}.attributes.background-size`}
+          placeholder='e.g. 100% auto'
         />
       </Space>
     );

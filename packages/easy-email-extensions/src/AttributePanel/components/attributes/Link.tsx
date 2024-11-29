@@ -21,6 +21,7 @@ export function Link() {
         <Grid.Col span={11}>
           <TextField
             prefix={<IconLink />}
+            placeholder='e.g. https://www.example.com'
             label={
               // eslint-disable-next-line react/jsx-wrap-multilines
               <Space>

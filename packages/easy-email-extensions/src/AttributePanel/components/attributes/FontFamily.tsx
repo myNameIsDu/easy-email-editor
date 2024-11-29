@@ -15,6 +15,7 @@ export function FontFamily({ name }: { name?: string }) {
         label={t('Font family')}
         name={name || `${focusIdx}.attributes.font-family`}
         options={fontList}
+        placeholder={t('Please input or select font family')}
       />
     );
   }, [focusIdx, fontList, name]);

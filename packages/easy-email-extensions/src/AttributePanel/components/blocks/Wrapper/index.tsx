@@ -47,10 +47,12 @@ export function Wrapper() {
               label={t('Border')}
               name={`${focusIdx}.attributes.border`}
               inline
+              placeholder='e.g. 1px solid red'
             />
             <TextField
               label={t('Background border radius')}
               name={`${focusIdx}.attributes.border-radius`}
+              placeholder='e.g. 10px 10px 10px 10px'
               inline
             />
           </Stack>

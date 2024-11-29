@@ -24,7 +24,7 @@ export function Divider() {
           <Space direction='vertical'>
             <Grid.Row>
               <Grid.Col span={11}>
-                <Width unitOptions='percent' />
+                <Width />
               </Grid.Col>
               <Grid.Col
                 offset={1}

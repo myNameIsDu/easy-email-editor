@@ -56,6 +56,7 @@ export function AdvancedTable() {
           <TextField
             label='Table border'
             name={`${focusIdx}.attributes.border`}
+            placeholder='e.g. 1px solid red'
           />
           <ColorPickerField
             label='Cell border color'
@@ -73,6 +74,7 @@ export function AdvancedTable() {
             label={t('Line height')}
             unitOptions='percent'
             name={`${focusIdx}.attributes.line-height`}
+            placeholder='e.g. 1.5'
           />
           <FontStyle />
           <TextAlign />

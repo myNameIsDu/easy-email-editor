@@ -31,6 +31,7 @@ export type INavbar = IBlockData<
       'text-decoration'?: string;
       target?: string;
       padding?: string;
+      'text-transform'?: string;
     }>;
   }
 >;
@@ -40,43 +41,55 @@ export const Navbar: IBlock<INavbar> = createBlock({
     return t('Navbar');
   },
   type: BasicType.NAVBAR,
-  create: (payload) => {
+  create: payload => {
     const defaultData: INavbar = {
       type: BasicType.NAVBAR,
       data: {
         value: {
           links: [
             {
-              href: '/gettings-started-onboard',
+              href: '',
               content: 'Getting started',
               color: '#1890ff',
               'font-size': '13px',
               target: '_blank',
               padding: '15px 10px',
+              'font-weight': 'normal',
+              'font-style': 'normal',
+              'text-transform': 'initial',
             },
             {
-              href: '/try-it-live',
+              href: '',
               content: 'Try it live',
               color: '#1890ff',
               'font-size': '13px',
               target: '_blank',
               padding: '15px 10px',
+              'font-weight': 'normal',
+              'font-style': 'normal',
+              'text-transform': 'initial',
             },
             {
-              href: '/templates',
+              href: '',
               content: 'Templates',
               color: '#1890ff',
               'font-size': '13px',
               target: '_blank',
               padding: '15px 10px',
+              'font-weight': 'normal',
+              'font-style': 'normal',
+              'text-transform': 'initial',
             },
             {
-              href: '/components',
+              href: '',
               content: 'Components',
               color: '#1890ff',
               'font-size': '13px',
               target: '_blank',
               padding: '15px 10px',
+              'font-weight': 'normal',
+              'font-style': 'normal',
+              'text-transform': 'initial',
             },
           ],
         },
@@ -92,18 +105,24 @@ export const Navbar: IBlock<INavbar> = createBlock({
 
   render(params) {
     const { data } = params;
-    const links = (data ).data.value.links
+    const links = data.data.value.links
       .map((link, index) => {
         const linkAttributeStr = Object.keys(link)
-          .filter((key) => key !== 'content' && link[key as keyof typeof link] !== '') // filter att=""
-          .map((key) => `${key}="${link[key as keyof typeof link]}"`)
+          .filter(key => key !== 'content' && link[key as keyof typeof link] !== '') // filter att=""
+          .map(key => `${key}="${link[key as keyof typeof link]}"`)
           .join(' ');
         return `
           <mj-navbar-link ${linkAttributeStr}>${link.content}</mj-navbar-link>
           `;
       })
       .join('\n');
-    return <BasicBlock params={params} tag="mj-navbar">{links}</BasicBlock>;
-
+    return (
+      <BasicBlock
+        params={params}
+        tag='mj-navbar'
+      >
+        {links}
+      </BasicBlock>
+    );
   },
 });

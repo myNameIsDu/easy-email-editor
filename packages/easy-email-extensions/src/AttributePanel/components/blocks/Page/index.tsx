@@ -134,6 +134,7 @@ export function Page({ hideSubTitle, hideSubject }: PageProps) {
                 autoSize
                 label={t('Custom Css Style')}
                 name={`${focusIdx}.data.value.user-style.content`}
+                placeholder={'e.g. .body { color: red } '}
               />
               <Stack.Item />
               <Stack.Item />

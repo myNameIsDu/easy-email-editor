@@ -33,6 +33,7 @@ export function generateAdvancedTableBlock(option: {
           cellBorderColor: '#000000',
           cellPadding: '8px',
           'text-align': 'center',
+          'font-style': 'normal',
         },
         children: [],
       };

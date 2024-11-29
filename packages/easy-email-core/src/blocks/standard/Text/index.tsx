@@ -44,6 +44,8 @@ export const Text = createBlock<IText>({
       attributes: {
         padding: '10px 25px 10px 25px',
         align: 'left',
+        'font-weight': 'normal',
+        'font-style': 'normal',
       },
       children: [],
     };
