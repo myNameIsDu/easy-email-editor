@@ -7,6 +7,7 @@ import { Collapse, Grid } from '@arco-design/web-react';
 import { Stack, useFocusIdx } from '@hy/easy-email-editor';
 import { ClassName } from '../../attributes/ClassName';
 import { CollapseWrapper } from '../../attributes/CollapseWrapper';
+import { Border } from '../../attributes';
 
 export function Wrapper() {
   const { focusIdx } = useFocusIdx();
@@ -43,13 +44,7 @@ export function Wrapper() {
             vertical
             spacing='tight'
           >
-            <BorderInputField name={`${focusIdx}.attributes.border`} />
-            <TextField
-              label={t('Background border radius')}
-              name={`${focusIdx}.attributes.border-radius`}
-              placeholder='e.g. 10px 10px 10px 10px'
-              inline
-            />
+            <Border />
           </Stack>
         </Collapse.Item>
         <Collapse.Item
