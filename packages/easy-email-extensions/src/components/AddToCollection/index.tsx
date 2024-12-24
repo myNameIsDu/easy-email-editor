@@ -42,6 +42,8 @@ export const AddToCollection: React.FC<{
           title={t('Add to collection')}
           onOk={() => handleSubmit()}
           onCancel={() => setVisible(false)}
+          // 兼容全屏模式下弹窗定位问题
+          getPopupContainer={() => document.fullscreenElement || document.body}
         >
           <Stack vertical>
             <Stack.Item />
