@@ -3,11 +3,20 @@ import React, { useMemo, useState } from 'react';
 
 export function useAddToCollection() {
   const [modalVisible, setModalVisible] = useState(false);
-  const modal = useMemo(() => <AddToCollection visible={modalVisible} setVisible={setModalVisible} />, [modalVisible]);
+  const modal = useMemo(
+    () =>
+      modalVisible ? (
+        <AddToCollection
+          visible={modalVisible}
+          setVisible={setModalVisible}
+        />
+      ) : null,
+    [modalVisible],
+  );
 
   return {
     modal,
     modalVisible,
-    setModalVisible
+    setModalVisible,
   };
 }
