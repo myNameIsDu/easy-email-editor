@@ -421,7 +421,7 @@
     "None": "无",
     "uppercase": "大写",
     "lowercase": "小写",
-    "capitalize": "大写",
+    "capitalize": "首字母大写",
     "Case Transform": "大小写转换",
     "Overline": "上划线",
     "Line through": "删除线",
