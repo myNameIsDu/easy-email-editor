@@ -14,6 +14,7 @@ import { Width } from '../../attributes/Width';
 import { HtmlEditor } from '../../UI/HtmlEditor';
 import { CollapseWrapper } from '../../attributes/CollapseWrapper';
 import {
+  BorderInputField,
   ColorPickerField,
   InputWithUnitField,
   NumberField,
@@ -53,13 +54,13 @@ export function AdvancedTable() {
         >
           <Color />
           <ContainerBackgroundColor />
-          <TextField
-            label='Table border'
+          <BorderInputField
+            // @ts-ignore  enhance 组件的类型问题
+            forwardLabel={t('Table border')}
             name={`${focusIdx}.attributes.border`}
-            placeholder='e.g. 1px solid red'
           />
           <ColorPickerField
-            label='Cell border color'
+            label={t('Cell border color')}
             name={`${focusIdx}.attributes.cellBorderColor`}
           />
         </Collapse.Item>

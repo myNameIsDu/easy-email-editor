@@ -481,6 +481,8 @@
     "Drop a content block here": "请拖拽内容组件",
     "Drop a Column block here": "请拖布局组件",
     "Please input or select font family": "请输入或者选择字体",
-    "Please select font weight": "请选择字体粗细"
+    "Please select font weight": "请选择字体粗细",
+    "Table border": "表格边框",
+    "Cell border color": "单元格边框颜色"
   }
 }

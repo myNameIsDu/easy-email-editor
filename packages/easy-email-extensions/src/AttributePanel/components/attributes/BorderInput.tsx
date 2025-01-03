@@ -8,6 +8,7 @@ import { Stack } from '@hy/easy-email-editor';
 interface BorderInputProps {
   value: string;
   onChange: (val: string) => void;
+  forwardLabel?: string;
 }
 
 const defaultFormValue = {
@@ -61,7 +62,7 @@ function BorderForm({ onChange }: { onChange: (val: string) => void }) {
   );
 }
 
-export function BorderInput({ value, onChange }: BorderInputProps) {
+export function BorderInput({ value, onChange, forwardLabel }: BorderInputProps) {
   const isCheck = !!value ? true : false;
 
   const handleOnChangedChange = (checked: boolean) => {
@@ -71,10 +72,24 @@ export function BorderInput({ value, onChange }: BorderInputProps) {
       onChange('');
     }
   };
+
+  const label = (
+    <div
+      style={{
+        height: 32,
+        lineHeight: '32px',
+        fontSize: 14,
+        color: 'var(--color-text-2)',
+      }}
+    >
+      {forwardLabel ? forwardLabel : t('Border')}
+    </div>
+  );
+
   if (!isCheck) {
     return (
-      <Stack>
-        <span>{t('Border')}</span>
+      <Stack alignment='center'>
+        {label}
         <Switch
           onChange={handleOnChangedChange}
           checked={isCheck}
@@ -84,8 +99,8 @@ export function BorderInput({ value, onChange }: BorderInputProps) {
   }
   return (
     <>
-      <Stack>
-        <span>{t('Border')}</span>
+      <Stack alignment='center'>
+        {label}
         <Switch
           onChange={handleOnChangedChange}
           checked={isCheck}
