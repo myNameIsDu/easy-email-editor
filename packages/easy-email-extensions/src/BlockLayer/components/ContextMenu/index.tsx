@@ -122,8 +122,8 @@ export function ContextMenu({
             <IconFont
               iconName='icon-start'
               style={{ marginRight: 10 }}
-            />{' '}
-            <TextStyle>Add to collection</TextStyle>
+            />
+            <TextStyle>{t('Add to custom')}</TextStyle>
           </div>
         )}
         <div

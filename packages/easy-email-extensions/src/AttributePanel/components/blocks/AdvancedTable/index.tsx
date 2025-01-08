@@ -39,7 +39,7 @@ export function AdvancedTable() {
             <Padding />
           </Stack>
           <NumberField
-            label='Cell padding (px)'
+            label={t('Cell padding (px)')}
             name={`${focusIdx}.attributes.cellPadding`}
             config={pixelAdapter}
             max={20}

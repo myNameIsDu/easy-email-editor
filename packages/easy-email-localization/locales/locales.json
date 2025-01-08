@@ -42,7 +42,7 @@
     "on": "on",
     "Bold": "Bold",
     "Select parent block": "Select parent block",
-    "Add to collection": "Add to collection",
+    "Add to custom": "Add to custom",
     "Font family": "Font family",
     "Strikethrough": "Strikethrough",
     "Uploading...": "Uploading...",
@@ -63,6 +63,7 @@
     "Thumbnail required!": "Thumbnail required!",
     "Layout": "Layout",
     "Content": "Content",
+    "1 column": "1 column",
     "2 columns": "2 columns",
     "3 columns": "3 columns",
     "4 columns": "4 columns",
@@ -284,7 +285,7 @@
     "Target": "是否在新的窗口打开",
     "Bold": "加粗",
     "Select parent block": "选择父块",
-    "Add to collection": "添加到收藏",
+    "Add to custom": "添加到自定义组件",
     "Font family": "选择字体",
     "Strikethrough": "删除线",
     "Uploading...": "上传...",
@@ -305,6 +306,7 @@
     "Thumbnail required!": "请上传缩略图！",
     "Layout": "布局",
     "Content": "内容",
+    "1 column": "1 列",
     "2 columns": "2 列",
     "3 columns": "3 列",
     "4 columns": "4 列",
@@ -483,6 +485,12 @@
     "Please input or select font family": "请输入或者选择字体",
     "Please select font weight": "请选择字体粗细",
     "Table border": "表格边框",
-    "Cell border color": "单元格边框颜色"
+    "Cell border color": "单元格边框颜色",
+    "Height(PX)": "高度 (PX)",
+    "Width(%)": "宽度 (%)",
+    "Letter spacing(PX)": "字间距 (PX)",
+    "Remove all padding": "移除所有内边距",
+    "Cell padding (px)": "单元格内边距 (px)",
+    "Upload image": "上传图片"
   }
 }

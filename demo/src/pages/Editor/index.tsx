@@ -129,7 +129,7 @@ const customObj = {
 
 const defaultCategories: ExtensionProps['categories'] = [
   {
-    label: 'Content',
+    label: '内容',
     active: true,
     blocks: [
       // {
@@ -159,9 +159,9 @@ const defaultCategories: ExtensionProps['categories'] = [
       {
         type: BasicType.BUTTON,
       },
-      // {
-      //   type: BasicType.RAW,
-      // },
+      {
+        type: BasicType.RAW,
+      },
       // {
       //   type: BasicType.ACCORDION,
       // },
@@ -229,7 +229,7 @@ const defaultCategories: ExtensionProps['categories'] = [
     ],
   },
   {
-    label: 'Layout',
+    label: '布局',
     active: true,
     displayType: 'column',
     blocks: [
@@ -262,7 +262,7 @@ const defaultCategories: ExtensionProps['categories'] = [
     ],
   },
   {
-    label: 'Custom',
+    label: '自定义组件',
     active: true,
     displayType: 'custom',
     blocks: [
@@ -544,7 +544,6 @@ export default function Editor() {
           // onSubmit={onSubmit}
           // onChangeMergeTag={onChangeMergeTag}
           autoComplete
-          dashed={false}
           // mergeTags={mergeTags}
           // mergeTagGenerate={tag => `{{${tag}}}`}
           // onBeforePreview={onBeforePreview}

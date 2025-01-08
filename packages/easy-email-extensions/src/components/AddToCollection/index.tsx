@@ -39,7 +39,7 @@ export const AddToCollection: React.FC<{
           maskClosable={false}
           style={{ zIndex: 2000 }}
           visible={visible}
-          title={t('Add to collection')}
+          title={t('Add to custom')}
           onOk={() => handleSubmit()}
           onCancel={() => setVisible(false)}
           // 兼容全屏模式下弹窗定位问题
